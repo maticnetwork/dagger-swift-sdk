@@ -4,7 +4,7 @@ import SwiftMQTT
 public class Dagger : MQTTSessionDelegate{
     private var client : MQTTSession? = nil
     public var regexTopics = [String: MqttRegex]()
-    public var listeners = [String: Array<DaggerCallbackListener>?]()
+    public var listeners = [String: Array<DaggerEventListener>?]()
     private var isConnectedToHost = false
     var processedoptions : Options
     
@@ -43,7 +43,6 @@ public class Dagger : MQTTSessionDelegate{
         client!.delegate = self
         client!.connect { (error) in
         if error == .none {
-            print("connected")
             self.isConnectedToHost = true
             self.processedoptions.callback?.connected(dagger: self)
         } else {
@@ -63,16 +62,16 @@ public class Dagger : MQTTSessionDelegate{
     }
 
     
-    public func on(eventName: String, listener: DaggerCallbackListener?)throws -> Dagger {
+    public func on(eventName: String, listener: DaggerEventListener?)throws -> Dagger {
         return try self.addListener(eventName: eventName, listener: listener)
     }
 
 
-    public func off(eventName: String, listener: DaggerCallbackListener?)throws -> Dagger {
+    public func off(eventName: String, listener: DaggerEventListener?)throws -> Dagger {
         return try self.removeListener(eventName: eventName, listener: listener)
     }
 
-    public func addListener(eventName: String, listener: DaggerCallbackListener?)throws-> Dagger {
+    public func addListener(eventName: String, listener: DaggerEventListener?)throws-> Dagger {
         let mqttRegex = MqttRegex(t: eventName)
         if (regexTopics[mqttRegex.topic] == nil) { // subscribe events from server using topic
             
@@ -95,26 +94,33 @@ public class Dagger : MQTTSessionDelegate{
         return self
     }
 
-    public func removeListener(eventName: String, listener: DaggerCallbackListener?)throws-> Dagger {
+    public func removeListener(eventName: String, listener: DaggerEventListener?)throws-> Dagger {
         let mqttRegex = MqttRegex(t: eventName)
-        // if listener count is zero, unsubscribe topic and delete from `_regexTopics`
-        if (getEventListeners(eventName: eventName).count == 0) { // unsubscribe events from server
-//            client?.unsubscribe(mqttRegex.topic)
-            // remove MQTT regex from regex topics
-            if (regexTopics[mqttRegex.topic] != nil) {
-                regexTopics.removeValue(forKey: mqttRegex.topic)
-            }
-        }
         // not working
         
-        var list: Array<DaggerCallbackListener> = getEventListeners(eventName: eventName)
+        var list: Array<DaggerEventListener> = getEventListeners(eventName: eventName)
+        print("list size before \(list.count)")
         if(listener != nil){
             for i in 0 ..< list.count {
-                if (list[i] as AnyObject === listener as AnyObject?) {
+                if (list[i] as DaggerEventListener as AnyObject === listener as DaggerEventListener? as AnyObject?) {
+                    print("remove")
                     list.remove(at:i)
                     break
                 }
             }
+        }
+        print("list size after \(list.count)")
+        listeners[eventName] = list
+        print("list size after2 \(getEventListeners(eventName: eventName).count)")
+        
+         // if listener count is zero, unsubscribe topic and delete from `_regexTopics`
+        if (getEventListeners(eventName: eventName).count == 0) { // unsubscribe events from server
+            // remove MQTT regex from regex topics
+            if (regexTopics[mqttRegex.topic] != nil) {
+                regexTopics.removeValue(forKey: mqttRegex.topic)
+            }
+            // unsubscribe
+            client?.unSubscribe(from: eventName, completion: nil)
         }
         return self
     }
@@ -129,7 +135,7 @@ public class Dagger : MQTTSessionDelegate{
             regexTopics.removeValue(forKey: mqttRegex.topic)
         }
 
-        listeners[eventName] = Array<DaggerCallbackListener>()
+        listeners[eventName] = Array<DaggerEventListener>()
     }
 
     public func getMatchingTopics(eventName: String)-> Array<String> {
@@ -149,7 +155,7 @@ public class Dagger : MQTTSessionDelegate{
     }
     
     // Get all event listeners
-    private func getEventListeners(eventName: String)-> Array<DaggerCallbackListener> {
+    private func getEventListeners(eventName: String)-> Array<DaggerEventListener> {
         if (listeners[eventName] == nil) {
             listeners[eventName] = Array()
         }

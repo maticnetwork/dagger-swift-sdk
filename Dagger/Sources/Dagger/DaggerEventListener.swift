@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol DaggerCallbackListener {
+public protocol DaggerEventListener {
     func callback(topic: String?, data: Data)
 }

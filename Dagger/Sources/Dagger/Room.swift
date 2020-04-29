@@ -17,12 +17,12 @@ class Room {
     }
 
     
-    func on(eventName: String, listener: DaggerCallbackListener?)throws -> Room {
+    func on(eventName: String, listener: DaggerEventListener?)throws -> Room {
         try dagger?.on(eventName: "\(roomType?.rawValue):\(eventName)", listener: listener)
         return self
     }
 
-    func off(eventName: String, listener: DaggerCallbackListener?)throws -> Room {
+    func off(eventName: String, listener: DaggerEventListener?)throws -> Room {
         try dagger?.off(eventName: "\(roomType?.rawValue):\(eventName)", listener: listener)
         return self
     }
