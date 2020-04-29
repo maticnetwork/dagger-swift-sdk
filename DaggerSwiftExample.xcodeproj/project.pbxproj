@@ -25,7 +25,7 @@
 		8183272C24594C91009189DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8183272F24594C91009189DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8183273124594C91009189DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8183273724594E98009189DB /* DaggerSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DaggerSwift; sourceTree = "<group>"; };
+		8183273C24595B71009189DB /* DaggerSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DaggerSwift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 		8183271724594C8D009189DB = {
 			isa = PBXGroup;
 			children = (
-				8183273724594E98009189DB /* DaggerSwift */,
+				8183273C24595B71009189DB /* DaggerSwift */,
 				8183272224594C8D009189DB /* DaggerSwiftExample */,
 				8183272124594C8D009189DB /* Products */,
 				8183273824594F15009189DB /* Frameworks */,
