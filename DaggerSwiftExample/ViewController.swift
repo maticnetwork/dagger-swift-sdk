@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DaggerSwift
+import Dagger
 
 class ViewController: UIViewController {
     var dagger : Dagger!
