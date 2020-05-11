@@ -39,11 +39,7 @@ public class MqttRegex{
             let isLast = index == tokens.count - 1
             let beforeMulti = index == tokens.count - 2
                 && lastToken?.type == TokenType.MULTI
-            if isLast || beforeMulti{
-                result.append(token!.last)
-            }  else {
-                result.append(token!.piece)
-            }
+            result.append( (isLast || beforeMulti) ? token!.last : token!.piece)
         }
         let pattern = "^"+"".join(src : result)+"$"
         return try! NSRegularExpression(pattern: pattern)

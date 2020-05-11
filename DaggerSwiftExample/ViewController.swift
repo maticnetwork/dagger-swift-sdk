@@ -12,7 +12,7 @@ class ViewController: UIViewController {
         callback.parent = self
         let options = Options(callback : callback)
         dagger = try! Dagger(url: "matic.dagger2.matic.network", options: options)
-        dagger.start()
+        _ = dagger.start()
             
             
             
@@ -23,11 +23,11 @@ class ViewController: UIViewController {
     @objc func updateCounting(){
         count=count+1;
         do{
-            try print("Connected: \(dagger.isConnected()), Subscriptions: \(dagger.getAllSubscriptions())")
+             print("Connected: \(dagger.isConnected()), Subscriptions: \(dagger.getAllSubscriptions())")
             
             // sample remove listener after 10 seconds
             if count==2 {
-               try dagger.removeListener(eventName: "latest:block", listener: eventListner)
+              _ = try dagger.removeListener(eventName: "latest:block", listener: eventListner)
             }
             
             // sample stop dagger
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     
         func connected(dagger : Dagger) {
             do{
-                try dagger.on(eventName: "latest:block", listener: parent!.eventListner)
+               _ = try dagger.on(eventName: "latest:block", listener: parent!.eventListner)
             } catch {
                 print(error)
             }

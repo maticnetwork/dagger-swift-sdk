@@ -12,11 +12,8 @@ public class Dagger : MQTTSessionDelegate{
         if (url=="") {
             throw DaggerError(message: "Invalid URL")
         }
-        if (options == nil) {
-            processedoptions = Options()
-        } else {
-            processedoptions = options!
-        }
+        
+        processedoptions = options ?? Options()
         client = MQTTSession(host: url, port: 1883, clientID: processedoptions.clientId, cleanSession: processedoptions.cleanSession, keepAlive: 15, useSSL: false)
 
         client?.delegate = self
@@ -42,13 +39,13 @@ public class Dagger : MQTTSessionDelegate{
     public func start() -> Bool{
         client!.delegate = self
         client!.connect { (error) in
-        if error == .none {
-            self.isConnectedToHost = true
-            self.processedoptions.callback?.connected(dagger: self)
-        } else {
-            print(error)
-            self.isConnectedToHost = false
-        }
+            if error == .none {
+                self.isConnectedToHost = true
+                self.processedoptions.callback?.connected(dagger: self)
+            } else {
+                print(error)
+                self.isConnectedToHost = false
+            }
         }
         return self.isConnectedToHost
     }
