@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftMQTT",
+        "repositoryURL": "https://github.com/aciidb0mb3r/SwiftMQTT",
+        "state": {
+          "branch": "master",
+          "revision": "6667e19b0d63f00cfe7769b133ab95b1bbbf136a",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
