@@ -3,5 +3,6 @@ import XCTest
 import DaggerTests
 
 var tests = [XCTestCaseEntry]()
-tests += DaggerTests.allTests()
+tests += DaggerTests.__allTests()
+
 XCTMain(tests)

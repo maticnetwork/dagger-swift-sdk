@@ -2,6 +2,7 @@ import XCTest
 @testable import Dagger
 
 final class DaggerTests: XCTestCase {
+    var dagger : Dagger!
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,4 +13,6 @@ final class DaggerTests: XCTestCase {
     static var allTests = [
         ("testExample", testExample),
     ]
+    
+     
 }
