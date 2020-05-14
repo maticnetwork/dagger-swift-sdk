@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3BE6B6AB246C0C9C00CB2C45 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BE6B6AB246C0C9C00CB2C45 /* DaggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE6B6AE246C0C9C00CB2C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE6B6B2246C0C9C00CB2C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BE6B6B5246C0C9C00CB2C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		3BE6B6A2246C0C9C00CB2C45 = {
 			isa = PBXGroup;
 			children = (
-				3BE6B6AD246C0C9C00CB2C45 /* Example */,
+				3BE6B6AD246C0C9C00CB2C45 /* DaggerExample */,
 				3BE6B6AC246C0C9C00CB2C45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		3BE6B6AC246C0C9C00CB2C45 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3BE6B6AB246C0C9C00CB2C45 /* Example.app */,
+				3BE6B6AB246C0C9C00CB2C45 /* DaggerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3BE6B6AD246C0C9C00CB2C45 /* Example */ = {
+		3BE6B6AD246C0C9C00CB2C45 /* DaggerExample */ = {
 			isa = PBXGroup;
 			children = (
 				3BE6B6AE246C0C9C00CB2C45 /* AppDelegate.swift */,
@@ -63,15 +63,15 @@
 				3BE6B6B9246C0C9E00CB2C45 /* LaunchScreen.storyboard */,
 				3BE6B6BC246C0C9E00CB2C45 /* Info.plist */,
 			);
-			path = Example;
+			path = DaggerExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3BE6B6AA246C0C9C00CB2C45 /* Example */ = {
+		3BE6B6AA246C0C9C00CB2C45 /* DaggerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BE6B6BF246C0C9E00CB2C45 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = 3BE6B6BF246C0C9E00CB2C45 /* Build configuration list for PBXNativeTarget "DaggerExample" */;
 			buildPhases = (
 				3BE6B6A7246C0C9C00CB2C45 /* Sources */,
 				3BE6B6A8246C0C9C00CB2C45 /* Frameworks */,
@@ -81,12 +81,12 @@
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = DaggerExample;
 			packageProductDependencies = (
 				3BE6B6C3246C523A00CB2C45 /* Dagger */,
 			);
 			productName = Example;
-			productReference = 3BE6B6AB246C0C9C00CB2C45 /* Example.app */;
+			productReference = 3BE6B6AB246C0C9C00CB2C45 /* DaggerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3BE6B6A6246C0C9C00CB2C45 /* Build configuration list for PBXProject "Example" */;
+			buildConfigurationList = 3BE6B6A6246C0C9C00CB2C45 /* Build configuration list for PBXProject "DaggerExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -120,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3BE6B6AA246C0C9C00CB2C45 /* Example */,
+				3BE6B6AA246C0C9C00CB2C45 /* DaggerExample */,
 			);
 		};
 /* End PBXProject section */
@@ -220,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,15 +290,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YK8JZW9C73;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DaggerExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matic.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = network.matic.DaggerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,22 +308,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YK8JZW9C73;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DaggerExample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matic.Example;
+				PRODUCT_BUNDLE_IDENTIFIER = network.matic.DaggerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3BE6B6A6246C0C9C00CB2C45 /* Build configuration list for PBXProject "Example" */ = {
+		3BE6B6A6246C0C9C00CB2C45 /* Build configuration list for PBXProject "DaggerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BE6B6BD246C0C9E00CB2C45 /* Debug */,
@@ -332,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BE6B6BF246C0C9E00CB2C45 /* Build configuration list for PBXNativeTarget "Example" */ = {
+		3BE6B6BF246C0C9E00CB2C45 /* Build configuration list for PBXNativeTarget "DaggerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BE6B6C0246C0C9E00CB2C45 /* Debug */,
