@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  Example
-//
-//  Created by Jyoti on 13/05/20.
-//  Copyright © 2020 Matic. All rights reserved.
-//
+
 
 import UIKit
 

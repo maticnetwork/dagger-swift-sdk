@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-DaggerExample/Pods-DaggerExample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DaggerSwift/DaggerSwift.framework
+${BUILT_PRODUCTS_DIR}/SwiftMQTT/SwiftMQTT.framework

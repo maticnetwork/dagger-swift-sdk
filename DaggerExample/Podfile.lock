@@ -1,0 +1,23 @@
+PODS:
+  - DaggerSwift (0.0.1):
+    - SwiftMQTT
+  - SwiftMQTT (3.0.1)
+
+DEPENDENCIES:
+  - DaggerSwift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SwiftMQTT
+
+EXTERNAL SOURCES:
+  DaggerSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DaggerSwift: 21a212e991c278ca36ae35408dcba5ce330e6f8f
+  SwiftMQTT: 983eeb29e8c8173ed953e0238d2f99b79ff3ccd2
+
+PODFILE CHECKSUM: 066fa798ac584ff053b3bdaaddf2a702f3f978fa
+
+COCOAPODS: 1.9.1

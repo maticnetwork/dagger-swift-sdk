@@ -1,28 +1,40 @@
-//
-//  ViewController.swift
-//  Example
-//
-//  Created by Jyoti on 13/05/20.
-//  Copyright © 2020 Matic. All rights reserved.
-//
 
 import UIKit
-import Dagger
+import DaggerSwift
 
 class ViewController: UIViewController {
 
     var dagger : Dagger!
     var count = 0
-    var callback : Callback?
-    var eventListner : DaggerEventListener?
+    var listener : successClosure?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let options = Options()
-        dagger = try! Dagger(url: "matic.dagger2.matic.network", options: options)
-        _ = dagger.start()
+        
+        listener = { topic, data in
+            print(String(data: data, encoding: .utf8) as Any)
+        }
+        
+        let onConnected : connectedClosure = { dagger in
+            print("connected")
+            do{
+                _ = try dagger.on(eventName: "latest:block", listener: self.listener )
+            } catch {
+                print(error)
+            }
             
+        }
+        
+        let onConnectionLost : connectionLostClosure = { err in
+            print("Connection Lost \(err)")
+        }
+        
+        //        let options = Options(callback: callback)
+        dagger = try! Dagger(url: "matic.dagger2.matic.network",onConnected : onConnected,onConnectionLost:onConnectionLost)
+        _ = dagger.start()
+        
+        
         // Wait and keep listening dagger events
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
@@ -34,7 +46,7 @@ class ViewController: UIViewController {
             
             // sample remove listener after 10 seconds
             if count==2 {
-              _ = try dagger.removeListener(eventName: "latest:block", listener: eventListner)
+              _ = try dagger.removeListener(eventName: "latest:block", listener: listener)
             }
             
             // sample stop dagger
@@ -49,25 +61,3 @@ class ViewController: UIViewController {
 
 
 }
-
-extension ViewController : Callback {
-    func connectionLost(cause: NSError?) {
-        print("Connection lost. Reason: \(cause)")
-    }
-    
-    func connected(dagger: Dagger) {
-        do{
-            _ = try dagger.on(eventName: "latest:block", listener: eventListner)
-        } catch {
-            print(error)
-        }
-    }
-}
-
-extension ViewController : DaggerEventListener {
-    func callback(topic: String?, data: Data) {
-        print("latest block data is \(String(decoding: data, as: UTF8.self))}")
-    }
-    
-}
-
