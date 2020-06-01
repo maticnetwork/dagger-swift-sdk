@@ -1,0 +1,6 @@
+framework module DaggerSwift {
+  umbrella header "DaggerSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

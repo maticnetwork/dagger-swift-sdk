@@ -1,6 +1,5 @@
 import Foundation
 
-
 class Numeric {
     
     private static let HEX_PREFIX :String = "0x";
