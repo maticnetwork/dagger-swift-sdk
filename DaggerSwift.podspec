@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DaggerSwift"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "Simple library to connect with dagger server and manage subscriptions for Ethereum Blockchain."
  
   s.description      = <<-DESC
